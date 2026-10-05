@@ -22,7 +22,7 @@ background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,tran
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 40%,rgba(192,38,45,.35),rgba(192,38,45,.08) 60%,transparent 80%);opacity:0;animation:bl 3.5s steps(1) infinite}
 @keyframes bl{0%{opacity:0}6%{opacity:1}8%{opacity:0}10%{opacity:.8}12%{opacity:0}48%{opacity:0}50%{opacity:1}53%{opacity:.2}56%{opacity:.9}60%{opacity:0}100%{opacity:0}}
 body::after{content:"";position:fixed;inset:-10%;pointer-events:none;z-index:0;opacity:.07;background:repeating-conic-gradient(#fff 0 25%,#000 0 50%) 0 0/3px 3px,repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 5px);mix-blend-mode:screen}
-h1,.sub,.subt{animation:gl 3.5s steps(1) infinite}
+h1,.eq,.sub,.subt{animation:gl 3.5s steps(1) infinite}
 @keyframes gl{0%,5%,8%,9%,12%,49%,60%,100%{text-shadow:none}6%,10%{text-shadow:0 0 8px #ff2a35,0 0 22px #ff2a35,3px 0 #ff2a35,-3px 0 #5ff;color:#fff}50%,56%{text-shadow:0 0 10px #ff2a35,0 0 30px #ff2a35;color:#fff}53%{text-shadow:none}}
 article h2,article p,article h3,nav,#st{animation:gl2 3.5s steps(1) infinite}
 @keyframes gl2{0%,5%,8%,9%,12%,49%,60%,100%{text-shadow:none}6%,10%{text-shadow:1px 0 rgba(255,42,53,.7),-1px 0 rgba(85,255,255,.35)}50%,56%{text-shadow:0 0 6px rgba(255,42,53,.45)}53%{text-shadow:none}}
@@ -57,7 +57,7 @@ main{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:28px 18px
 .br{color:var(--dim);font-size:22px;letter-spacing:6px}
 h1{font-family:'Liberation Serif',serif;font-size:clamp(18px,5vw,26px);letter-spacing:.45em;margin:10px 0;font-weight:normal;-webkit-font-smoothing:none;font-smooth:never}
 .sub{color:var(--ac);font-size:12px;letter-spacing:.2em}
-.eq{color:#fff;white-space:nowrap;font-size:18px;letter-spacing:2px}.eq span{display:inline-block;animation:hb 2s ease-in-out infinite;animation-delay:calc(var(--d) * .15s)}.eq .eye{animation:none;display:inline-block}@keyframes hb{0%,100%{transform:scale(1);text-shadow:none}10%{transform:scale(1.3);text-shadow:0 0 6px #fff,0 0 12px rgba(255,255,255,.5)}20%{transform:scale(1);text-shadow:none}30%{transform:scale(1.18);text-shadow:0 0 4px #fff}40%,100%{transform:scale(1);text-shadow:none}}
+.eq{color:#fff;white-space:nowrap;font-size:18px;letter-spacing:2px}.eq span{display:inline-block;animation:hb 2s ease-in-out infinite;animation-delay:calc(var(--d) * .15s)}.eq .eye{animation:none;display:inline-block}@keyframes hb{0%,100%{transform:scale(1);color:#fff;text-shadow:none}10%{transform:scale(1.3);color:var(--ac);text-shadow:0 0 6px var(--ac),0 0 14px var(--ac)}20%{transform:scale(1);color:#fff;text-shadow:none}30%{transform:scale(1.18);color:var(--ac);text-shadow:0 0 4px var(--ac)}40%,100%{transform:scale(1);color:#fff;text-shadow:none}}
 .pfw{position:relative;width:300px;max-width:100%;margin:22px auto;padding:12px}
 .pfw::before{content:"";position:absolute;inset:6px;pointer-events:none;z-index:2;background:linear-gradient(#fff,#fff) 0 0/22px 1px no-repeat,
 linear-gradient(#fff,#fff) 0 0/1px 22px no-repeat,
