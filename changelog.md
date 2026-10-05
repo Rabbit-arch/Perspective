@@ -1,5 +1,18 @@
 # Catatan Perubahan & Analisis Proyek P008 (PERSPECTIVE)
 
+## [Title Font Update] - 2026-10-06
+
+### Ringkasan
+Mengganti font judul (untuk elemen `h1`) dari *Times New Roman* menjadi **Liberation Serif**. File font disalin dari sistem lokal Arch Linux dan dimuat langsung via `@font-face` di dalam repo, menjamin bahwa teks judul Serif akan tampil 100% konsisten persis seperti Liberation Serif di semua perangkat dan sistem operasi pengguna, tanpa bergantung pada fallback browser.
+
+### File yang Diubah
+- `fonts/LiberationSerif-Regular.ttf`: Menambahkan file font baru.
+- `perspective.html`, `about.html`, `archive.html`:
+  - Menambahkan `@font-face` untuk `Liberation Serif`.
+  - Mengubah CSS `h1` untuk menggunakan `font-family: 'Liberation Serif', serif`.
+
+---
+
 ## [Nerd Font Integration] - 2026-10-06
 
 ### Ringkasan
