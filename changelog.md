@@ -3,15 +3,13 @@
 ## [Web Font] - 2026-10-06
 
 ### Ringkasan
-Menambahkan Google Fonts (`Noto Sans Mono`) ke seluruh halaman agar tampilan font konsisten di semua perangkat — menyamakan tampilan lokal (Arch Linux) dengan tampilan published (GitHub Pages/Vercel/Netlify).
+Mengganti Google Fonts dengan file font lokal (`NotoSansMono-Regular.ttf`) yang di-embed langsung ke dalam repositori agar tampilan 100% sama dengan versi lokal Arch Linux tanpa adanya perbedaan render dari Google Fonts.
 
 ### File yang Diubah
-- `perspective.html`: Tambah `<link>` preconnect + Google Fonts, update `font-family` ke `"Noto Sans Mono","Courier New",Courier,monospace`
+- `fonts/NotoSansMono-Regular.ttf`: [NEW] File font lokal disalin dari `/usr/share/fonts/noto/`.
+- `perspective.html`: Hapus `<link>` Google Fonts, tambah `@font-face` lokal, update `font-family` ke `"Local Noto Sans Mono"`.
 - `about.html`: Idem
 - `archive.html`: Idem
-
-### Alasan
-Font lokal menggunakan `Noto Sans Mono` (default monospace Arch Linux), sedangkan perangkat lain (Android, Windows, iOS) jatuh ke font sistem masing-masing karena hanya `"Courier New"` yang digunakan sebelumnya. Dengan Google Fonts, semua perangkat mengunduh font yang sama.
 
 ---
 
