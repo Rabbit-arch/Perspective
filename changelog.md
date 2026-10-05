@@ -1,5 +1,18 @@
 # Catatan Perubahan & Analisis Proyek P008 (PERSPECTIVE)
 
+## [Nerd Font Integration] - 2026-10-06
+
+### Ringkasan
+Menambahkan **LiterationMono Nerd Font** (`LiterationMonoNerdFont-Regular.ttf`) untuk digunakan sebagai font dasar konten (menggantikan Liberation Mono biasa). Ini memungkinkan seluruh halaman menggunakan ikon-ikon dari Nerd Fonts sambil tetap mempertahankan estetika monospace/retro yang sama persis.
+
+### File yang Diubah
+- `fonts/LiterationMonoNerdFont-Regular.ttf`: Menambahkan file font baru.
+- `perspective.html`, `about.html`, `archive.html`:
+  - Mengupdate `@font-face` untuk mengarah ke `LiterationMono Nerd Font`.
+  - Mengubah CSS `body` untuk menggunakan font tersebut.
+
+---
+
 ## [Typography Title Fix] - 2026-10-06
 
 ### Ringkasan
