@@ -1,5 +1,18 @@
 # Catatan Perubahan & Analisis Proyek P008 (PERSPECTIVE)
 
+## [Typography Title Fix] - 2026-10-06
+
+### Ringkasan
+Memperbaiki masalah pada tampilan judul (`h1` dan `title`) yang sebelumnya menggunakan karakter Fullwidth (seperti `ＰＥＲＳＰＥＣＴＩＶＥ`). Karakter tersebut sering mengalami fallback ke font Serif acak di berbagai OS. Untuk memastikan konsistensi tampilan Serif yang elegan, karakter diubah menjadi normal dengan efek `letter-spacing`, menggunakan Google Font `Noto Serif`.
+
+### File yang Diubah
+- `perspective.html`, `about.html`, `archive.html`: 
+  - Tambah `<link>` Google Fonts untuk `Noto Serif`
+  - Ubah CSS `h1` untuk menggunakan `font-family: 'Noto Serif', serif` dan `letter-spacing: .35em`
+  - Ganti teks Fullwidth (`ＰＥＲＳＰＥＣＴＩＶＥ`, dll.) menjadi teks standar (`PERSPECTIVE`, dll.)
+
+---
+
 ## [Web Font Fix] - 2026-10-06
 
 ### Ringkasan
