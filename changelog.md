@@ -1,15 +1,14 @@
 # Catatan Perubahan & Analisis Proyek P008 (PERSPECTIVE)
 
-## [Web Font] - 2026-10-06
+## [Web Font Fix] - 2026-10-06
 
 ### Ringkasan
-Mengganti Google Fonts dengan file font lokal (`NotoSansMono-Regular.ttf`) yang di-embed langsung ke dalam repositori agar tampilan 100% sama dengan versi lokal Arch Linux tanpa adanya perbedaan render dari Google Fonts.
+Mengganti font embed dari `Noto Sans Mono` menjadi `Liberation Mono`. Sebelumnya terjadi kesalahan identifikasi font; font bawaan Arch Linux untuk `"Courier New"` ternyata adalah `Liberation Mono`, bukan `Noto Sans Mono`.
 
 ### File yang Diubah
-- `fonts/NotoSansMono-Regular.ttf`: [NEW] File font lokal disalin dari `/usr/share/fonts/noto/`.
-- `perspective.html`: Hapus `<link>` Google Fonts, tambah `@font-face` lokal, update `font-family` ke `"Local Noto Sans Mono"`.
-- `about.html`: Idem
-- `archive.html`: Idem
+- `fonts/LiberationMono-Regular.ttf`: [NEW] File font disalin dari `/usr/share/fonts/liberation/`.
+- `fonts/NotoSansMono-Regular.ttf`: [DELETE] File font lama dihapus.
+- `perspective.html`, `about.html`, `archive.html`: Update `@font-face` dan `font-family` body ke `"Liberation Mono"`.
 
 ---
 
