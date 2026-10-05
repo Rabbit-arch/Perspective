@@ -1,5 +1,19 @@
 # Catatan Perubahan & Analisis Proyek P008 (PERSPECTIVE)
 
+## [Security & Animation Update] - 2026-10-06
+
+### Ringkasan
+- **Anti-Inspect**: Mengunci halaman dengan mencegah Klik Kanan (Context Menu), `F12`, `Ctrl+Shift+I/J/C`, dan `Ctrl+U` untuk mencegah kode sumber situs dicontek/diinspeksi. Fitur ini dipasang secara global di semua halaman.
+- **Heartbeat Animation**: Memodifikasi barisan ikon `░▒▓█▓▒𓁿▒▓█▓▒░` pada halaman beranda. Animasi *glitch* statis dihapus dan diganti dengan animasi denyut jantung (`heartbeat`) di mana elemen mengecil dan membesar seperti gelombang (beriak dari tengah ke samping secara individual).
+
+### File yang Diubah
+- `perspective.html`:
+  - Mengisolasi karakter demi karakter ke dalam tag `<span>` tersendiri dan menggunakan variable `--d` sebagai acuan *delay* gelombang denyutan.
+  - Menambahkan keyframes baru `@keyframes hb` (Heartbeat).
+- Semua file `.html`: Ditambahkan JavaScript `addEventListener` untuk mencekal instruksi masuk *devtools*.
+
+---
+
 ## [Title Font Update] - 2026-10-06
 
 ### Ringkasan

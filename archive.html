@@ -128,5 +128,9 @@ footer{color:var(--dim);font-size:12px;margin-top:50px}
     <hr>
     <footer>© 2026 ︱ <a href="mailto:raihanhmubarak@gmail.com">contact</a></footer>
   </main>
+<script>
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&['I','J','C'].includes(e.key))||(e.ctrlKey&&e.key==='U'))e.preventDefault();});
+</script>
 </body>
 </html>
