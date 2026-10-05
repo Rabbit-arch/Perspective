@@ -1,0 +1,12 @@
+{
+  "name": "p008-perspective",
+  "version": "1.0.0",
+  "description": "PERSPECTIVE - Catatan pelan tentang jarak, sudut, dan siapa yang sedang memandang siapa",
+  "main": "perspective.html",
+  "scripts": {
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "jsdom": "^26.0.0"
+  }
+}

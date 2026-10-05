@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Catatan pelan tentang jarak, sudut, dan siapa yang sedang memandang siapa.">
+<meta name="theme-color" content="#0a0a0c">
+<title>⌈ ＰＥＲＳＰＥＣＴＩＶＥ ⌋</title>
+<style>
+:root{--bg:#0a0a0c;--fg:#b9b9c4;--dim:#6c6c7a;--ac:#c0262d;--ln:#2a2a33;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body,*{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+img,svg,video{-webkit-user-drag:none;user-drag:none}
+::selection{background:transparent;color:inherit}
+html,body{overflow-x:hidden}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.7 "Courier New",Courier,monospace;
+background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);animation:bgp 4s ease-in-out infinite}
+@keyframes bgp{0%,100%{background-color:#0a0a0c}50%{background-color:#14080a}}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 40%,rgba(192,38,45,.35),rgba(192,38,45,.08) 60%,transparent 80%);opacity:0;animation:bl 3.5s steps(1) infinite}
+@keyframes bl{0%{opacity:0}6%{opacity:1}8%{opacity:0}10%{opacity:.8}12%{opacity:0}48%{opacity:0}50%{opacity:1}53%{opacity:.2}56%{opacity:.9}60%{opacity:0}100%{opacity:0}}
+body::after{content:"";position:fixed;inset:-10%;pointer-events:none;z-index:0;opacity:.07;background:repeating-conic-gradient(#fff 0 25%,#000 0 50%) 0 0/3px 3px,repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 5px);mix-blend-mode:screen}
+h1,.eq,.sub,.subt{animation:gl 3.5s steps(1) infinite}
+@keyframes gl{0%,5%,8%,9%,12%,49%,60%,100%{text-shadow:none}6%,10%{text-shadow:0 0 8px #ff2a35,0 0 22px #ff2a35,3px 0 #ff2a35,-3px 0 #5ff;color:#fff}50%,56%{text-shadow:0 0 10px #ff2a35,0 0 30px #ff2a35;color:#fff}53%{text-shadow:none}}
+article h2,article p,article h3,nav,#st{animation:gl2 3.5s steps(1) infinite}
+@keyframes gl2{0%,5%,8%,9%,12%,49%,60%,100%{text-shadow:none}6%,10%{text-shadow:1px 0 rgba(255,42,53,.7),-1px 0 rgba(85,255,255,.35)}50%,56%{text-shadow:0 0 6px rgba(255,42,53,.45)}53%{text-shadow:none}}
+body{transition:background-color .4s}
+body.on{animation:none;background-color:#8a1219;--fg:#f6e0e2;--dim:#e0a6aa;--ac:#ffd6d9;--ln:#c4545b}
+body.on::before{animation:none;opacity:1;background:radial-gradient(ellipse at 50% 40%,rgba(255,90,100,.6),rgba(230,40,50,.25) 55%,transparent 85%)}
+body.on *:not(main):not(#fx):not(#eye){animation:none!important;text-shadow:none!important}
+body.on a:hover,body.on button:hover{background:#3a0508;border-color:#3a0508}
+body.on .pfw::before{display:none}
+#eye{display:none;width:100%;aspect-ratio:1;background:none;overflow:visible}
+body.on #eye{display:block}
+body.on #pf{display:none}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:5;opacity:0}
+#vg{position:fixed;inset:0;pointer-events:none;z-index:4;opacity:0;transition:opacity .4s;background:radial-gradient(ellipse at 50% 45%,transparent 30%,rgba(0,0,0,.5) 65%,rgba(0,0,0,.92) 100%)}
+body.on #vg{opacity:1}
+body.burst #fx{animation:fx .45s ease-out}
+body.burst main{animation:sk .45s steps(6)}
+@keyframes fx{0%{opacity:0;background:#fff}8%{opacity:.9;background:#fff}22%{opacity:.4;background:#ff2a35}34%{opacity:.8;background:#fff}100%{opacity:0;background:#ff2a35}}
+@keyframes sk{0%,100%{transform:none}12%{transform:translate(-7px,2px) skewX(4deg)}24%{transform:translate(6px,-3px)}36%{transform:translate(-5px,3px) skewX(-5deg)}50%{transform:translate(4px,-2px)}66%{transform:translate(-2px,1px)}85%{transform:translate(1px,0)}}
+body.on .subt{display:none}
+.subt{color:var(--dim);font-size:12px;letter-spacing:.2em;margin:0 0 8px}
+#quote{display:none;margin:18px 0;line-height:1.8}
+#quote .gk0{font-size:clamp(17px,4.6vw,22px);letter-spacing:.12em;color:#fff}
+#quote .ar{font-size:clamp(17px,4.4vw,21px);line-height:2.3;color:#fff;letter-spacing:normal;text-align:center}
+#quote .tr{max-width:34em;margin-left:auto;margin-right:auto;text-align:center;line-height:1.7}
+#quote .tr{font-size:13px;color:var(--fg);margin-top:8px;letter-spacing:.06em}
+#quote .at{font-size:12px;color:var(--dim);margin-top:4px;letter-spacing:.14em}
+body.on #quote{display:block}
+a{color:var(--fg);text-decoration:none;border-bottom:1px dotted var(--dim)}
+a:hover{color:#fff;background:var(--ac);border-color:var(--ac)}
+main{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:28px 18px 60px;text-align:center}
+.br{color:var(--dim);font-size:22px;letter-spacing:6px}
+h1{font-size:clamp(18px,5vw,26px);letter-spacing:.12em;margin:10px 0;font-weight:400}
+.sub{color:var(--ac);font-size:12px;letter-spacing:.2em}
+.eq{color:var(--dim);white-space:nowrap;font-size:18px;letter-spacing:2px}
+.pfw{position:relative;width:300px;max-width:100%;margin:22px auto;padding:12px}
+.pfw::before{content:"";position:absolute;inset:6px;pointer-events:none;z-index:2;background:linear-gradient(#fff,#fff) 0 0/22px 1px no-repeat,
+linear-gradient(#fff,#fff) 0 0/1px 22px no-repeat,
+linear-gradient(#fff,#fff) 100% 0/22px 1px no-repeat,
+linear-gradient(#fff,#fff) 100% 0/1px 22px no-repeat,
+linear-gradient(#fff,#fff) 0 100%/22px 1px no-repeat,
+linear-gradient(#fff,#fff) 0 100%/1px 22px no-repeat,
+linear-gradient(#fff,#fff) 100% 100%/22px 1px no-repeat,
+linear-gradient(#fff,#fff) 100% 100%/1px 22px no-repeat}
+.dith,#eye{position:relative;z-index:1}
+.dith{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+@keyframes g{0%,93%,100%{transform:none}94%{transform:translateX(4px)}96%{transform:translateX(-5px) skewX(6deg)}}
+nav{margin:14px 0;font-size:14px;line-height:2.2}
+nav span{color:var(--dim);margin:0 6px}
+hr{border:0;border-top:1px solid var(--ln);margin:22px 0}
+.vis{margin:10px 0}
+button{font:inherit;background:none;color:var(--fg);border:1px solid var(--dim);padding:2px 12px;cursor:pointer}
+button:hover{background:var(--ac);border-color:var(--ac);color:#fff}
+article{margin:44px 0;text-align:left}
+article h2{font-size:20px;font-weight:400;margin:0;text-align:center;letter-spacing:.05em}
+article h3{font-size:12px;font-weight:400;color:var(--dim);text-align:center;margin:4px 0}
+article hr{margin:12px 0 18px}
+article p{margin:0 0 12px}
+.cen{text-align:center}
+.hid{filter:blur(5px) grayscale(1);opacity:.4;transition:.5s}
+footer{color:var(--dim);font-size:12px;margin-top:50px}
+
+/* ===== Pengembangan: aksesibilitas & utilitas ===== */
+[hidden]{display:none!important}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+:root{--lbg:#0a0a0c}
+body.on{--lbg:#8a1219}
+body.on nav{display:none}
+nav a[aria-current="page"]{color:#fff;border-bottom:1px solid var(--ac)}
+@media (prefers-reduced-motion:reduce){
+body,body::before,h1,.eq,.sub,.subt,article h2,article p,article h3,nav,#st{animation:none!important}
+body.burst #fx,body.burst main{animation:none!important}
+.hid,.old{transition:none}
+}
+
+/* ===== Mode "terlihat": sembunyikan garis dekoratif & teks [so much pain] ===== */
+body.on .eq,body.on .sub,body.on .subt{display:none}
+
+/* ===== Teks status kosong tidak memakai ruang ===== */
+#st:empty{display:none}
+
+/* ===== Pemisah header/isi dan antar postingan lebih jelas ===== */
+#posts article hr{border-top:2px solid var(--ln);margin:14px 0 20px}
+#posts article{margin:28px 0;padding:24px 20px;border:1px solid #fff}
+
+/* ===== Mode "terlihat": kurung judul dipindah ke sudut ===== */
+body.on #ttl{position:relative;padding:0 1.4em}
+body.on #ttl::before,body.on #ttl::after{position:absolute;color:var(--fg);font-weight:400}
+body.on #ttl::before{content:"⌈";left:0;top:0}
+body.on #ttl::after{content:"⌋";right:0;bottom:0}
+
+/* ===== Efek tatapan: denyut cahaya merah di sekitar mata besar ===== */
+#gz{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity 1.4s ease;display:none;
+--ex:50%;--ey:40%;--gp:.5;
+background:radial-gradient(circle at var(--ex) var(--ey),rgba(255,70,80,calc(.10 + .22 * var(--gp))) 0,transparent 55%);
+-webkit-mask-image:radial-gradient(circle at var(--ex) var(--ey),transparent 0,transparent 80px,#000 250px);
+mask-image:radial-gradient(circle at var(--ex) var(--ey),transparent 0,transparent 80px,#000 250px)}
+body.on #gz{display:block}
+body.on.gaze #gz{opacity:1}
+@media (prefers-reduced-motion:reduce){#gz{transition:none}}
+
+/* ===== Mata-mata kecil di sisi layar saat mata besar menatap ===== */
+#gzeyes{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:3;display:none}
+body.on #gzeyes{display:block}
+.ge{position:absolute;width:var(--w);height:calc(var(--w) * .55);margin-top:calc(var(--w) * -.275);opacity:0;transform:scaleY(.05);
+transition:opacity .45s ease,transform .5s cubic-bezier(.2,1.4,.4,1);transition-delay:var(--d)}
+.ge svg{display:block;width:100%;height:100%;overflow:visible}
+body.on.gaze .ge{opacity:.95;transform:scaleY(1)}
+@media (prefers-reduced-motion:reduce){.ge{transition:none}}
+
+/* ===== Cahaya merah "bernapas" permanen di status "terlihat" (tanpa menunggu tatapan) ===== */
+@keyframes breathe{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.18)}}
+body.on::before{animation:breathe 6s ease-in-out infinite;transform-origin:50% 40%;will-change:opacity,transform}
+
+/* ===== About Me ===== */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.stz{margin:24px 0;text-align:center;line-height:1.9}
+.stz [data-fw]{margin:0;font-size:14px;letter-spacing:.04em;overflow-wrap:anywhere}
+.stz [data-fw]:first-child{color:#fff}
+.stz [data-fw]:last-child{color:var(--dim)}
+.dia{text-align:center;color:var(--ac);font-size:18px;margin:28px 0 14px}
+</style>
+</head>
+<body>
+<main>
+<h1 id="ttl">⌈ ＰＥＲＳＰＥＣＴＩＶＥ ⌋</h1>
+<div class="subt">Raihan H. Mubarak</div>
+<div class="eq">░▒▓█▓▒𓁿▒▓█▓▒░</div>
+<div class="sub"><a href="#posts" id="pain" lang="en">[so much pain]</a></div>
+<div class="pfw"><img class="dith" id="pf" alt="Potret hitam-putih bergaya dithering" src="statue4.png">
+<svg id="eye" viewBox="0 0 300 300" aria-hidden="true"><defs><mask id="hm" maskUnits="userSpaceOnUse" x="0" y="0" width="300" height="300"><rect width="300" height="300" fill="#fff"/><circle id="hole" cx="150" cy="150" r="52" fill="#000"/></mask><clipPath id="alm"><path d="M24 150 Q150 46 276 150 Q150 254 24 150Z"/></clipPath></defs><g fill="#e9e3cf"><polygon points="150,3 154.5,70 150,94 145.5,70"/><polygon points="150,297 154.5,230 150,206 145.5,230"/><polygon points="118,207 114.4,230.1 88,290 106,227.1"/><polygon points="182,207 185.6,230.1 212,290 194,227.1"/><polygon points="0,150 26,145.5 26,154.5"/><polygon points="300,150 274,145.5 274,154.5"/></g><g id="lids"><g clip-path="url(#alm)"><g mask="url(#hm)"><line x1="214.1" y1="150.2" x2="303.2" y2="150.5" stroke="#e9e3cf" stroke-width="0.6" opacity="0.78"/><line x1="214.4" y1="152.4" x2="256.0" y2="154.0" stroke="#e9e3cf" stroke-width="1.2" opacity="0.37"/><line x1="208.2" y1="153.5" x2="269.2" y2="157.1" stroke="#e9e3cf" stroke-width="1.2" opacity="0.37"/><line x1="208.1" y1="156.0" x2="296.7" y2="165.2" stroke="#e9e3cf" stroke-width="1.2" opacity="0.42"/><line x1="218.8" y1="159.8" x2="284.2" y2="169.1" stroke="#e9e3cf" stroke-width="0.9" opacity="0.44"/><line x1="214.6" y1="162.0" x2="308.9" y2="179.5" stroke="#e9e3cf" stroke-width="0.6" opacity="0.71"/><line x1="215.1" y1="164.9" x2="308.3" y2="186.3" stroke="#e9e3cf" stroke-width="0.6" opacity="0.55"/><line x1="207.5" y1="166.2" x2="243.6" y2="176.3" stroke="#e9e3cf" stroke-width="0.6" opacity="0.64"/><line x1="205.5" y1="168.5" x2="272.7" y2="190.9" stroke="#e9e3cf" stroke-width="1.2" opacity="0.72"/><line x1="210.2" y1="170.7" x2="279.7" y2="194.5" stroke="#e9e3cf" stroke-width="0.9" opacity="0.74"/><line x1="200.9" y1="169.5" x2="268.1" y2="195.2" stroke="#e9e3cf" stroke-width="0.9" opacity="0.72"/><line x1="210.2" y1="176.8" x2="233.3" y2="187.1" stroke="#e9e3cf" stroke-width="0.9" opacity="0.45"/><line x1="198.3" y1="174.3" x2="242.7" y2="196.6" stroke="#e9e3cf" stroke-width="1.2" opacity="0.69"/><line x1="208.5" y1="181.4" x2="245.9" y2="201.5" stroke="#e9e3cf" stroke-width="1.2" opacity="0.68"/><line x1="196.7" y1="177.6" x2="268.0" y2="219.7" stroke="#e9e3cf" stroke-width="1.2" opacity="0.62"/><line x1="202.0" y1="185.1" x2="240.9" y2="211.5" stroke="#e9e3cf" stroke-width="1.2" opacity="0.71"/><line x1="196.6" y1="182.7" x2="243.1" y2="215.3" stroke="#e9e3cf" stroke-width="1.2" opacity="0.75"/><line x1="195.6" y1="184.7" x2="238.5" y2="217.3" stroke="#e9e3cf" stroke-width="0.9" opacity="0.65"/><line x1="198.5" y1="191.3" x2="262.3" y2="245.6" stroke="#e9e3cf" stroke-width="0.9" opacity="0.71"/><line x1="197.1" y1="193.4" x2="247.9" y2="240.3" stroke="#e9e3cf" stroke-width="0.6" opacity="0.39"/><line x1="195.4" y1="195.2" x2="258.4" y2="258.0" stroke="#e9e3cf" stroke-width="0.6" opacity="0.58"/><line x1="190.1" y1="193.8" x2="258.3" y2="268.2" stroke="#e9e3cf" stroke-width="1.2" opacity="0.73"/><line x1="188.4" y1="195.3" x2="219.4" y2="231.7" stroke="#e9e3cf" stroke-width="1.2" opacity="0.39"/><line x1="188.4" y1="198.1" x2="247.7" y2="272.1" stroke="#e9e3cf" stroke-width="0.6" opacity="0.36"/><line x1="179.5" y1="192.4" x2="229.6" y2="264.4" stroke="#e9e3cf" stroke-width="0.9" opacity="0.46"/><line x1="183.8" y1="201.3" x2="219.1" y2="255.0" stroke="#e9e3cf" stroke-width="0.9" opacity="0.53"/><line x1="182.6" y1="205.2" x2="221.1" y2="270.5" stroke="#e9e3cf" stroke-width="0.9" opacity="0.57"/><line x1="172.9" y1="195.2" x2="205.0" y2="258.7" stroke="#e9e3cf" stroke-width="0.6" opacity="0.53"/><line x1="174.3" y1="203.9" x2="210.9" y2="285.3" stroke="#e9e3cf" stroke-width="0.9" opacity="0.73"/><line x1="173.2" y1="208.8" x2="199.7" y2="276.2" stroke="#e9e3cf" stroke-width="1.2" opacity="0.51"/><line x1="168.3" y1="197.4" x2="202.2" y2="285.4" stroke="#e9e3cf" stroke-width="0.6" opacity="0.46"/><line x1="168.1" y1="205.4" x2="191.5" y2="277.2" stroke="#e9e3cf" stroke-width="0.9" opacity="0.44"/><line x1="163.6" y1="201.4" x2="188.4" y2="295.4" stroke="#e9e3cf" stroke-width="0.6" opacity="0.56"/><line x1="160.5" y1="202.1" x2="167.3" y2="236.0" stroke="#e9e3cf" stroke-width="0.6" opacity="0.76"/><line x1="157.4" y1="198.4" x2="166.3" y2="257.1" stroke="#e9e3cf" stroke-width="0.6" opacity="0.49"/><line x1="157.0" y1="203.4" x2="165.7" y2="270.5" stroke="#e9e3cf" stroke-width="1.2" opacity="0.67"/><line x1="153.4" y1="201.7" x2="155.8" y2="238.3" stroke="#e9e3cf" stroke-width="0.9" opacity="0.53"/><line x1="150.3" y1="212.1" x2="150.7" y2="282.5" stroke="#e9e3cf" stroke-width="1.2" opacity="0.57"/><line x1="149.2" y1="211.4" x2="148.1" y2="303.8" stroke="#e9e3cf" stroke-width="0.9" opacity="0.65"/><line x1="145.9" y1="199.8" x2="138.7" y2="288.0" stroke="#e9e3cf" stroke-width="0.9" opacity="0.37"/><line x1="141.8" y1="209.7" x2="134.8" y2="261.2" stroke="#e9e3cf" stroke-width="1.2" opacity="0.71"/><line x1="139.5" y1="209.2" x2="134.9" y2="235.8" stroke="#e9e3cf" stroke-width="0.6" opacity="0.75"/><line x1="136.2" y1="210.4" x2="123.4" y2="266.1" stroke="#e9e3cf" stroke-width="0.6" opacity="0.67"/><line x1="136.9" y1="199.5" x2="127.9" y2="233.0" stroke="#e9e3cf" stroke-width="0.9" opacity="0.42"/><line x1="130.9" y1="207.8" x2="120.7" y2="239.0" stroke="#e9e3cf" stroke-width="1.2" opacity="0.80"/><line x1="131.2" y1="203.7" x2="119.9" y2="236.2" stroke="#e9e3cf" stroke-width="0.6" opacity="0.35"/><line x1="125.6" y1="206.7" x2="91.4" y2="286.3" stroke="#e9e3cf" stroke-width="0.6" opacity="0.51"/><line x1="125.5" y1="201.7" x2="86.1" y2="285.0" stroke="#e9e3cf" stroke-width="1.2" opacity="0.56"/><line x1="122.0" y1="201.2" x2="78.7" y2="280.2" stroke="#e9e3cf" stroke-width="0.9" opacity="0.36"/><line x1="124.2" y1="195.8" x2="86.7" y2="262.4" stroke="#e9e3cf" stroke-width="0.9" opacity="0.44"/><line x1="118.7" y1="198.6" x2="99.4" y2="228.5" stroke="#e9e3cf" stroke-width="0.9" opacity="0.49"/><line x1="116.5" y1="197.9" x2="58.0" y2="281.5" stroke="#e9e3cf" stroke-width="1.2" opacity="0.67"/><line x1="113.2" y1="198.2" x2="94.0" y2="223.4" stroke="#e9e3cf" stroke-width="0.9" opacity="0.65"/><line x1="109.2" y1="197.3" x2="87.6" y2="222.5" stroke="#e9e3cf" stroke-width="0.9" opacity="0.36"/><line x1="108.6" y1="195.5" x2="80.0" y2="227.0" stroke="#e9e3cf" stroke-width="1.2" opacity="0.40"/><line x1="104.2" y1="194.8" x2="38.6" y2="258.9" stroke="#e9e3cf" stroke-width="1.2" opacity="0.44"/><line x1="108.8" y1="187.5" x2="68.7" y2="224.0" stroke="#e9e3cf" stroke-width="1.2" opacity="0.69"/><line x1="101.0" y1="189.9" x2="47.5" y2="233.5" stroke="#e9e3cf" stroke-width="0.6" opacity="0.47"/><line x1="100.8" y1="189.2" x2="61.1" y2="220.8" stroke="#e9e3cf" stroke-width="0.9" opacity="0.60"/><line x1="103.2" y1="182.8" x2="28.0" y2="235.4" stroke="#e9e3cf" stroke-width="0.6" opacity="0.40"/><line x1="104.5" y1="179.5" x2="40.7" y2="220.8" stroke="#e9e3cf" stroke-width="0.6" opacity="0.43"/><line x1="94.0" y1="183.8" x2="31.4" y2="221.5" stroke="#e9e3cf" stroke-width="0.6" opacity="0.40"/><line x1="91.0" y1="183.5" x2="38.7" y2="213.3" stroke="#e9e3cf" stroke-width="0.6" opacity="0.50"/><line x1="89.3" y1="179.1" x2="56.8" y2="194.7" stroke="#e9e3cf" stroke-width="0.6" opacity="0.70"/><line x1="95.8" y1="173.5" x2="47.8" y2="194.2" stroke="#e9e3cf" stroke-width="0.9" opacity="0.63"/><line x1="91.5" y1="172.9" x2="43.8" y2="191.5" stroke="#e9e3cf" stroke-width="0.6" opacity="0.65"/><line x1="99.4" y1="167.8" x2="49.9" y2="185.2" stroke="#e9e3cf" stroke-width="0.9" opacity="0.49"/><line x1="90.6" y1="168.7" x2="50.6" y2="181.4" stroke="#e9e3cf" stroke-width="0.9" opacity="0.70"/><line x1="88.7" y1="165.9" x2="51.7" y2="175.4" stroke="#e9e3cf" stroke-width="1.2" opacity="0.76"/><line x1="92.2" y1="163.2" x2="26.8" y2="178.3" stroke="#e9e3cf" stroke-width="0.6" opacity="0.61"/><line x1="82.7" y1="163.6" x2="-24.4" y2="185.4" stroke="#e9e3cf" stroke-width="1.2" opacity="0.73"/><line x1="82.0" y1="161.1" x2="4.9" y2="173.7" stroke="#e9e3cf" stroke-width="0.6" opacity="0.70"/><line x1="89.0" y1="157.8" x2="29.1" y2="165.4" stroke="#e9e3cf" stroke-width="0.9" opacity="0.50"/><line x1="90.4" y1="153.6" x2="26.1" y2="157.4" stroke="#e9e3cf" stroke-width="0.6" opacity="0.55"/><line x1="92.2" y1="151.7" x2="18.9" y2="153.9" stroke="#e9e3cf" stroke-width="1.2" opacity="0.60"/><line x1="91.8" y1="149.9" x2="-10.5" y2="149.7" stroke="#e9e3cf" stroke-width="0.9" opacity="0.62"/><line x1="82.8" y1="148.4" x2="33.3" y2="147.2" stroke="#e9e3cf" stroke-width="0.9" opacity="0.46"/><line x1="83.0" y1="144.8" x2="42.3" y2="141.6" stroke="#e9e3cf" stroke-width="1.2" opacity="0.72"/><line x1="90.0" y1="143.3" x2="-0.8" y2="133.1" stroke="#e9e3cf" stroke-width="1.2" opacity="0.41"/><line x1="83.5" y1="139.2" x2="-16.9" y2="123.0" stroke="#e9e3cf" stroke-width="1.2" opacity="0.62"/><line x1="97.1" y1="139.3" x2="56.1" y2="131.0" stroke="#e9e3cf" stroke-width="0.9" opacity="0.36"/><line x1="95.9" y1="137.4" x2="38.3" y2="124.1" stroke="#e9e3cf" stroke-width="0.9" opacity="0.58"/><line x1="89.4" y1="134.1" x2="38.3" y2="120.7" stroke="#e9e3cf" stroke-width="1.2" opacity="0.70"/><line x1="87.3" y1="129.8" x2="31.5" y2="111.8" stroke="#e9e3cf" stroke-width="0.9" opacity="0.62"/><line x1="93.6" y1="130.0" x2="21.1" y2="104.2" stroke="#e9e3cf" stroke-width="1.2" opacity="0.60"/><line x1="96.5" y1="128.8" x2="4.4" y2="92.3" stroke="#e9e3cf" stroke-width="0.9" opacity="0.73"/><line x1="96.2" y1="125.1" x2="41.1" y2="99.6" stroke="#e9e3cf" stroke-width="1.2" opacity="0.40"/><line x1="98.6" y1="123.5" x2="38.5" y2="92.5" stroke="#e9e3cf" stroke-width="0.9" opacity="0.76"/><line x1="102.9" y1="124.7" x2="28.4" y2="84.8" stroke="#e9e3cf" stroke-width="0.9" opacity="0.68"/><line x1="95.1" y1="116.9" x2="52.9" y2="91.4" stroke="#e9e3cf" stroke-width="1.2" opacity="0.74"/><line x1="95.0" y1="114.8" x2="57.8" y2="91.0" stroke="#e9e3cf" stroke-width="0.9" opacity="0.79"/><line x1="106.3" y1="118.9" x2="26.1" y2="61.8" stroke="#e9e3cf" stroke-width="1.2" opacity="0.49"/><line x1="106.1" y1="116.2" x2="82.7" y2="98.2" stroke="#e9e3cf" stroke-width="1.2" opacity="0.78"/><line x1="100.8" y1="107.9" x2="56.8" y2="70.2" stroke="#e9e3cf" stroke-width="0.6" opacity="0.45"/><line x1="106.3" y1="109.1" x2="35.8" y2="43.0" stroke="#e9e3cf" stroke-width="0.6" opacity="0.58"/><line x1="103.7" y1="105.1" x2="53.4" y2="56.3" stroke="#e9e3cf" stroke-width="0.9" opacity="0.35"/><line x1="112.1" y1="109.6" x2="78.1" y2="73.4" stroke="#e9e3cf" stroke-width="0.6" opacity="0.55"/><line x1="112.1" y1="105.3" x2="89.7" y2="78.8" stroke="#e9e3cf" stroke-width="1.2" opacity="0.61"/><line x1="118.1" y1="110.2" x2="58.7" y2="36.3" stroke="#e9e3cf" stroke-width="0.9" opacity="0.50"/><line x1="113.6" y1="100.0" x2="63.8" y2="31.5" stroke="#e9e3cf" stroke-width="0.6" opacity="0.44"/><line x1="118.3" y1="98.9" x2="103.6" y2="75.3" stroke="#e9e3cf" stroke-width="0.9" opacity="0.73"/><line x1="121.2" y1="101.1" x2="102.6" y2="69.6" stroke="#e9e3cf" stroke-width="1.2" opacity="0.80"/><line x1="122.0" y1="98.1" x2="104.0" y2="64.7" stroke="#e9e3cf" stroke-width="0.6" opacity="0.64"/><line x1="123.5" y1="94.5" x2="81.4" y2="6.3" stroke="#e9e3cf" stroke-width="0.9" opacity="0.74"/><line x1="130.9" y1="102.5" x2="102.2" y2="31.3" stroke="#e9e3cf" stroke-width="0.9" opacity="0.54"/><line x1="128.2" y1="92.2" x2="116.9" y2="62.2" stroke="#e9e3cf" stroke-width="1.2" opacity="0.44"/><line x1="133.8" y1="100.1" x2="110.8" y2="29.7" stroke="#e9e3cf" stroke-width="0.9" opacity="0.52"/><line x1="134.9" y1="90.2" x2="118.2" y2="24.3" stroke="#e9e3cf" stroke-width="0.6" opacity="0.79"/><line x1="140.2" y1="99.6" x2="132.6" y2="60.4" stroke="#e9e3cf" stroke-width="0.6" opacity="0.64"/><line x1="138.7" y1="88.1" x2="128.6" y2="32.6" stroke="#e9e3cf" stroke-width="1.2" opacity="0.38"/><line x1="145.2" y1="101.5" x2="138.6" y2="34.4" stroke="#e9e3cf" stroke-width="1.2" opacity="0.46"/><line x1="147.2" y1="100.2" x2="144.7" y2="56.0" stroke="#e9e3cf" stroke-width="0.6" opacity="0.46"/><line x1="148.1" y1="93.5" x2="146.9" y2="56.8" stroke="#e9e3cf" stroke-width="0.6" opacity="0.79"/><line x1="150.1" y1="94.8" x2="150.3" y2="14.8" stroke="#e9e3cf" stroke-width="0.9" opacity="0.35"/><line x1="154.3" y1="100.7" x2="156.7" y2="73.4" stroke="#e9e3cf" stroke-width="1.2" opacity="0.76"/><line x1="156.0" y1="94.7" x2="158.7" y2="69.9" stroke="#e9e3cf" stroke-width="0.9" opacity="0.58"/><line x1="160.4" y1="92.3" x2="171.4" y2="30.8" stroke="#e9e3cf" stroke-width="1.2" opacity="0.43"/><line x1="161.2" y1="100.0" x2="176.4" y2="32.4" stroke="#e9e3cf" stroke-width="0.6" opacity="0.65"/><line x1="163.4" y1="99.1" x2="183.1" y2="23.9" stroke="#e9e3cf" stroke-width="1.2" opacity="0.46"/><line x1="165.4" y1="100.1" x2="185.4" y2="35.7" stroke="#e9e3cf" stroke-width="0.9" opacity="0.47"/><line x1="170.7" y1="90.3" x2="179.5" y2="64.9" stroke="#e9e3cf" stroke-width="0.9" opacity="0.74"/><line x1="169.0" y1="102.2" x2="177.9" y2="79.7" stroke="#e9e3cf" stroke-width="0.9" opacity="0.71"/><line x1="175.4" y1="95.6" x2="213.3" y2="14.4" stroke="#e9e3cf" stroke-width="0.6" opacity="0.38"/><line x1="177.8" y1="99.0" x2="209.1" y2="41.5" stroke="#e9e3cf" stroke-width="1.2" opacity="0.46"/><line x1="176.6" y1="102.6" x2="189.5" y2="79.6" stroke="#e9e3cf" stroke-width="0.9" opacity="0.72"/><line x1="183.8" y1="98.5" x2="229.6" y2="28.7" stroke="#e9e3cf" stroke-width="0.9" opacity="0.39"/><line x1="181.0" y1="107.2" x2="206.5" y2="72.1" stroke="#e9e3cf" stroke-width="0.6" opacity="0.57"/><line x1="186.6" y1="103.3" x2="223.2" y2="56.4" stroke="#e9e3cf" stroke-width="0.9" opacity="0.53"/><line x1="184.5" y1="108.6" x2="249.0" y2="31.3" stroke="#e9e3cf" stroke-width="0.6" opacity="0.41"/><line x1="191.0" y1="106.3" x2="214.6" y2="81.2" stroke="#e9e3cf" stroke-width="1.2" opacity="0.55"/><line x1="186.9" y1="113.8" x2="217.7" y2="83.7" stroke="#e9e3cf" stroke-width="1.2" opacity="0.41"/><line x1="190.9" y1="112.1" x2="233.5" y2="72.6" stroke="#e9e3cf" stroke-width="0.6" opacity="0.79"/><line x1="198.0" y1="110.0" x2="277.3" y2="44.0" stroke="#e9e3cf" stroke-width="1.2" opacity="0.45"/><line x1="197.2" y1="112.6" x2="231.3" y2="85.5" stroke="#e9e3cf" stroke-width="0.9" opacity="0.39"/><line x1="195.8" y1="116.6" x2="277.7" y2="56.8" stroke="#e9e3cf" stroke-width="1.2" opacity="0.45"/><line x1="200.8" y1="115.9" x2="288.5" y2="56.8" stroke="#e9e3cf" stroke-width="1.2" opacity="0.50"/><line x1="206.8" y1="116.6" x2="269.8" y2="79.6" stroke="#e9e3cf" stroke-width="0.6" opacity="0.56"/><line x1="207.6" y1="118.3" x2="256.5" y2="91.4" stroke="#e9e3cf" stroke-width="0.6" opacity="0.45"/><line x1="199.7" y1="125.0" x2="262.4" y2="93.6" stroke="#e9e3cf" stroke-width="0.6" opacity="0.57"/><line x1="206.8" y1="124.4" x2="286.8" y2="88.3" stroke="#e9e3cf" stroke-width="0.9" opacity="0.55"/><line x1="209.8" y1="127.3" x2="300.4" y2="92.9" stroke="#e9e3cf" stroke-width="0.6" opacity="0.59"/><line x1="200.8" y1="131.7" x2="245.9" y2="115.5" stroke="#e9e3cf" stroke-width="0.9" opacity="0.63"/><line x1="212.2" y1="130.5" x2="277.0" y2="110.3" stroke="#e9e3cf" stroke-width="1.2" opacity="0.77"/><line x1="206.0" y1="135.3" x2="259.4" y2="121.2" stroke="#e9e3cf" stroke-width="0.6" opacity="0.68"/><line x1="204.6" y1="138.0" x2="248.7" y2="128.2" stroke="#e9e3cf" stroke-width="0.6" opacity="0.36"/><line x1="208.7" y1="138.4" x2="240.1" y2="132.2" stroke="#e9e3cf" stroke-width="0.9" opacity="0.50"/><line x1="211.5" y1="141.2" x2="240.8" y2="137.1" stroke="#e9e3cf" stroke-width="0.9" opacity="0.62"/><line x1="206.6" y1="143.5" x2="274.7" y2="135.8" stroke="#e9e3cf" stroke-width="0.6" opacity="0.36"/><line x1="210.5" y1="145.0" x2="281.5" y2="139.2" stroke="#e9e3cf" stroke-width="0.6" opacity="0.58"/><line x1="209.0" y1="147.9" x2="272.3" y2="145.6" stroke="#e9e3cf" stroke-width="0.9" opacity="0.42"/></g><g id="iris" transform="translate(150,150)"><g id="irs2"><circle r="52" fill="none" stroke="#e9e3cf" stroke-width="3"/><circle r="47" fill="none" stroke="#e9e3cf" stroke-width=".8" opacity=".7"/><circle id="pup" r="26" fill="none" stroke="#e9e3cf" stroke-width="1.6"/></g></g></g><path d="M10 150 Q150 30 290 150 Q150 270 10 150Z" fill="none" stroke="#e9e3cf" stroke-width="3.2"/><path d="M24 150 Q150 46 276 150 Q150 254 24 150Z" fill="none" stroke="#e9e3cf" stroke-width="1.2"/><line x1="150" y1="94" x2="150" y2="104" stroke="#e9e3cf" stroke-width="1.2"/><line x1="150" y1="196" x2="150" y2="206" stroke="#e9e3cf" stroke-width="1.2"/></g></svg>
+</div>
+<nav aria-label="Main navigation">
+<a href="about.html">About Me</a><span>︱</span><a href="https://github.com/Rabbit-arch" target="_blank" rel="noopener">Project</a><span>︱</span><a href="archive.html">Archive</a><span>︱</span><a href="#/contact">Contact</a>
+</nav>
+<div id="quote"><div class="ar" lang="ar" dir="rtl">وَمَا يَعْزُبُ عَنْ رَبِّكَ مِنْ مِثْقَالِ ذَرَّةٍ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَلَا أَصْغَرَ مِنْ ذَٰلِكَ وَلَا أَكْبَرَ إِلَّا فِي كِتَابٍ مُبِينٍ</div></div>
+<hr>
+<div class="vis" id="vis">
+<p id="st" role="status"></p>
+<button id="tg" aria-pressed="false" lang="en">[I Want To See]</button>
+</div>
+
+<section id="posts" data-view="beranda">
+<article>
+<h2>Tentang tempat berdiri</h2><h3>05.10.26</h3><hr>
+<p>Mungkin memang seperti itu adanya. Atau mungkin hanya terlihat begitu dari arah tertentu. Sesuatu yang sama bisa terasa berbeda, tergantung dari mana ia dilihat.</p>
+</article>
+
+</section>
+
+
+<section data-view="contact" hidden>
+<article>
+<h2>Contact</h2><h3>-admin</h3><hr>
+<p class="cen"><a href="mailto:raihanhmubarak@gmail.com">raihanhmubarak@gmail.com</a></p>
+</article>
+</section>
+
+
+<hr>
+<footer>© 2026 ︱ <a href="#/contact">contact</a></footer>
+</main>
+<div id="gz" aria-hidden="true"></div><div id="vg"></div><div id="fx"></div>
+<script>
+var v=false,st=document.getElementById('st'),tg=document.getElementById('tg'),ps=document.getElementById('posts');
+function syncInert(){ps.inert=!v;document.querySelectorAll('.old').forEach(function(e){e.inert=!v})}
+ps.classList.add('hid');syncInert();
+function inField(e){return e.target&&e.target.closest&&e.target.closest('input,textarea')}
+['copy','cut','selectstart','contextmenu','dragstart'].forEach(function(t){document.addEventListener(t,function(e){if(inField(e))return;e.preventDefault()})});
+document.addEventListener('keydown',function(e){if(inField(e))return;if((e.ctrlKey||e.metaKey)&&['a','c','x','s','u','p'].indexOf(e.key.toLowerCase())>-1)e.preventDefault()});
+var PN=[['en','so much pain'],['el','τόσος πόνος'],['ru','столько боли'],['ja','これほどの痛み'],['ko','너무 많은 고통'],['ar','الكثير من الألم'],['zh','太多痛苦']],pEl=document.getElementById('pain'),bag=[],last=0;
+function nextPain(){if(!bag.length){bag=PN.map(function(_,i){return i});for(var i=bag.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=bag[i];bag[i]=bag[j];bag[j]=t}if(bag[bag.length-1]===last&&bag.length>1){var q=bag.length-1;t=bag[q];bag[q]=bag[0];bag[0]=t}}return bag.pop()}
+setInterval(function(){if(document.hidden)return;last=nextPain();var l=PN[last][0];pEl.lang=l;pEl.textContent='['+PN[last][1]+']';pEl.style.letterSpacing=(l==='ar')?'normal':''},3500);
+var ttl=document.getElementById('ttl'),TT0=ttl.innerHTML;
+var P={x:null,y:null,t:0};
+addEventListener('pointermove',function(e){P.x=e.clientX;P.y=e.clientY;P.t=performance.now()},{passive:true});
+addEventListener('touchmove',function(e){var t=e.touches[0];if(t){P.x=t.clientX;P.y=t.clientY;P.t=performance.now()}},{passive:true});
+var E={on:false,mode:'follow',x:0,y:0,tx:0,ty:0,open:1,top:1,pup:18,til:0,raf:0,blink:0,sac:0};
+var holeEl=document.getElementById('hole'),eyeEl=document.getElementById('eye'),irisEl=document.getElementById('iris'),irs2=document.getElementById('irs2'),pupEl=document.getElementById('pup'),lidsEl=document.getElementById('lids');
+function rnd(a,b){return a+Math.random()*(b-a)}
+var starePhase=rnd(280,480);
+function cycle(){if(!E.on)return;if(E.mode==='follow'){if(Math.random()<rnd(.35,.75)){E.mode='stare';starePhase=rnd(250,500);setTimeout(cycle,rnd(2500,7500))}else setTimeout(cycle,rnd(5000,14000))}else{E.mode='follow';setTimeout(cycle,rnd(5000,14000))}}
+function blinkLoop(){if(!E.on)return;if(E.mode==='follow'||Math.random()<.25){E.blink=performance.now()}setTimeout(blinkLoop,rnd(1800,5500))}
+function frame(now){if(!E.on)return;var r=eyeEl.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,k=r.width/300;
+var idle=P.x===null||now-P.t>4000,tx=0,ty=0,stare=E.mode==='stare';gazeFx(stare,cx,cy,now);
+if(stare){tx=0;ty=0}else if(idle){if(now>E.sac){E.sac=now+rnd(900,2600);E.wx=rnd(-1,1);E.wy=rnd(-.5,.5)}tx=E.wx*44;ty=E.wy*16}
+else{var dx=P.x-cx,dy=P.y-cy,d=Math.hypot(dx,dy)||1,m=Math.min(d/(160*k+1),1);tx=dx/d*m*44;ty=dy/d*m*17}
+var f=stare?.07:.2;E.x+=(tx-E.x)*f;E.y+=(ty-E.y)*f;
+var jx=stare?Math.sin(now/37)*.7:0,jy=stare?Math.cos(now/43)*.5:0;
+irisEl.setAttribute('transform','translate('+(150+E.x+jx).toFixed(2)+','+(150+E.y+jy).toFixed(2)+')');
+var psc=stare?1.07:1;irs2.setAttribute('transform','scale('+psc+')');holeEl.setAttribute('cx',(150+E.x+jx).toFixed(2));holeEl.setAttribute('cy',(150+E.y+jy).toFixed(2));holeEl.setAttribute('r',(52*psc).toFixed(2));
+var tp=stare?11:(idle?26:24+Math.min(Math.hypot(P.x-cx,P.y-cy)/200,1)*3);E.pup+=(tp-E.pup)*(stare?.04:.15);pupEl.setAttribute('r',E.pup.toFixed(2));
+var to=stare?1.14:1;E.open+=(to-E.open)*.06;
+var b=now-E.blink,bl=b<160?1-Math.sin(b/160*Math.PI)*.92:1;
+lidsEl.setAttribute('transform','translate(0,150) scale(1,'+(E.open*bl).toFixed(3)+') translate(0,-150)');
+E.raf=requestAnimationFrame(frame)}
+var gz=document.getElementById('gz'),RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,gzOn=false,GE=[];
+(function(){
+var c=document.createElement('div'),N=21;c.id='gzeyes';c.setAttribute('aria-hidden','true');
+for(var i=0;i<N;i++){
+var left=i<11,idx=left?i:i-11,cnt=left?11:10,w=Math.round(rnd(22,40)),y=(idx+.5)/cnt*100+rnd(-3,3),off=-Math.round(w*rnd(.35,.55)),rot=rnd(-14,14),d=document.createElement('div'),sh='M1 11Q20 -3 39 11Q20 25 1 11Z';
+d.className='ge';
+d.style.cssText='--w:'+w+'px;--d:'+rnd(0,1.1).toFixed(2)+'s;top:'+y.toFixed(1)+'%;'+(left?'left:':'right:')+off+'px';
+d.innerHTML='<svg viewBox="0 0 40 22"><defs><clipPath id="gc'+i+'"><path d="'+sh+'"/></clipPath></defs><path d="'+sh+'" fill="#14070a"/><g clip-path="url(#gc'+i+')"><g class="mv"><circle cx="20" cy="11" r="7" fill="#e9e3cf"/><circle cx="20" cy="11" r="3" fill="#14070a"/></g></g><path d="'+sh+'" fill="none" stroke="#e9e3cf" stroke-width="1.5"/></svg>';
+c.appendChild(d);
+GE.push({el:d,svg:d.firstChild,mv:d.querySelector('.mv'),rot:rot,bl:0,nb:rnd(1500,5000)})}
+document.body.appendChild(c)})();
+function eyesTick(now){
+var idle=P.x===null||now-P.t>4000;
+for(var i=0;i<GE.length;i++){var e=GE[i],r=e.el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,tx=idle?innerWidth/2:P.x,ty=idle?innerHeight/2:P.y,dx=tx-cx,dy=ty-cy,dd=Math.hypot(dx,dy)||1,m=Math.min(dd/120,1);
+e.mv.setAttribute('transform','translate('+(dx/dd*m*8).toFixed(2)+' '+(dy/dd*m*2.8).toFixed(2)+')');
+if(!RM&&now>e.nb){e.bl=now;e.nb=now+rnd(2500,6500)}
+var b=now-e.bl,k=(!RM&&b<150)?1-Math.sin(b/150*Math.PI)*.9:1;
+e.svg.style.transform='rotate('+e.rot.toFixed(1)+'deg) scaleY('+k.toFixed(3)+')'}}
+function gazeFx(on,cx,cy,now){
+if(on!==gzOn){gzOn=on;document.body.classList.toggle('gaze',on)}
+if(!on)return;
+eyesTick(now);
+gz.style.setProperty('--ex',cx.toFixed(1)+'px');gz.style.setProperty('--ey',cy.toFixed(1)+'px');
+gz.style.setProperty('--gp',(RM?.5:(Math.sin(now/starePhase)+1)/2).toFixed(3))}
+function eyeStart(){if(E.on)return;E.on=true;E.mode='follow';E.blink=0;setTimeout(cycle,rnd(800,3200));setTimeout(blinkLoop,rnd(1000,3000));E.raf=requestAnimationFrame(frame)}
+function eyeStop(){E.on=false;cancelAnimationFrame(E.raf);gazeFx(false,0,0,0)}
+function setV(x){v=x;ttl.innerHTML=v?'ＹＯＵ　ＡＲＥ　ＢＥＩＮＧ<br>ＷＡＴＣＨＥＤ':TT0;st.textContent='';tg.textContent=v?'[I See You]':'[I Want To See]';ps.classList.toggle('hid',!v);syncInert();document.body.classList.toggle('on',v);tg.setAttribute('aria-pressed',v);if(v)eyeStart();else eyeStop();burst();window.scrollTo(0,0);document.dispatchEvent(new Event('watch'))}
+tg.onclick=function(){setV(!v)};
+function burst(){var b=document.body;b.classList.remove('burst');void b.offsetWidth;b.classList.add('burst');setTimeout(function(){b.classList.remove('burst')},500)}
+
+/* ===== Pengembangan: router halaman ===== */
+(function(){
+var VIEWS=['beranda','contact'];
+var LABEL={'contact':'Contact'};
+var BASE=document.title,cur='';
+function $(i){return document.getElementById(i)}
+
+/* --- Router (#/nama-halaman) --- */
+function route(){
+var h=location.hash,name='beranda',anchor=false;
+if(h.indexOf('#/')===0){var k=h.slice(2).replace(/\/$/,'');if(VIEWS.indexOf(k)>-1)name=k}
+else if(h==='#posts')anchor=true;
+if(name!==cur){
+document.querySelectorAll('[data-view]').forEach(function(s){s.hidden=s.getAttribute('data-view')!==name});
+cur=name;
+document.title=name==='beranda'?BASE:BASE+' — '+LABEL[name];
+if(!anchor)window.scrollTo(0,0)}
+if(anchor){var p=$('posts');if(p&&!p.hidden)p.scrollIntoView()}}
+addEventListener('hashchange',route);
+route();
+})();
+
+/* ===== Contact: klik "Contact" -> buka draft email ke admin ===== */
+(function(){
+var C=window.Contact={
+EMAIL:'raihanhmubarak@gmail.com',
+SUBJECT:'Pesan untuk admin',
+BODY:'Halo,\n\n',
+buildMailto:function(to,subject,body){
+return 'mailto:'+to+'?subject='+encodeURIComponent(subject||'')+'&body='+encodeURIComponent(body||'')},
+open:function(url){location.href=url}};
+document.addEventListener('click',function(e){
+var a=e.target&&e.target.closest&&e.target.closest('a[href="#/contact"]');
+if(!a)return;
+C.open(C.buildMailto(C.EMAIL,C.SUBJECT,C.BODY))});
+})();
+
+/* ===== Fullwidth: teks [data-fw] tampil ＦＵＬＬＷＩＤＴＨ, versi asli tetap untuk pembaca layar ===== */
+(function(){
+function convert(s){var o='';for(var i=0;i<s.length;i++){var c=s.charCodeAt(i);o+=c===32?'\u3000':(c>32&&c<127)?String.fromCharCode(c+0xFEE0):s.charAt(i)}return o}
+function apply(root){(root||document).querySelectorAll('[data-fw]').forEach(function(el){
+if(el.querySelector('.sr'))return;
+var t=el.textContent.trim(),a=document.createElement('span'),b=document.createElement('span');
+a.setAttribute('aria-hidden','true');a.textContent=convert(t);b.className='sr';b.textContent=t;
+el.textContent='';el.appendChild(a);el.appendChild(b)})}
+window.Fullwidth={convert:convert,apply:apply};apply();
+})();
+</script>
+</body>
+</html>
