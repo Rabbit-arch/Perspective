@@ -29,32 +29,14 @@ test('judul tab memuat Archive', async () => {
   assert.match(d.title, /Archive/);
 });
 
-test('ada minimal 4 elemen <details>', async () => {
+test('ada elemen notice-box 503 status', async () => {
   const { d } = await load();
-  const details = d.querySelectorAll('details');
-  assert.ok(details.length >= 4);
-});
-
-test('setiap <details> punya <summary>', async () => {
-  const { d } = await load();
-  const details = d.querySelectorAll('details');
-  details.forEach(det => {
-    const summary = det.querySelector('summary');
-    assert.ok(summary, 'harus punya summary');
-    assert.ok(summary.textContent.trim().length > 0, 'summary tidak boleh kosong');
-  });
-});
-
-test('ada satu catatan tersembunyi .old', async () => {
-  const { d } = await load();
-  const old = d.querySelectorAll('details.old');
-  assert.ok(old.length >= 1);
-});
-
-test('catatan .old memiliki class old', async () => {
-  const { d } = await load();
-  const old = d.querySelector('details.old');
-  assert.ok(old.classList.contains('old'));
+  const box = d.querySelector('.notice-box');
+  assert.ok(box, 'notice-box harus ada');
+  assert.equal(d.querySelector('.notice-tag').textContent.trim(), '— status —');
+  assert.equal(d.querySelector('.notice-code').textContent.trim(), '503');
+  assert.ok(d.querySelector('.notice-title').textContent.length > 0);
+  assert.ok(d.querySelector('.notice-body').textContent.length > 0);
 });
 
 test('tidak ada iframe/audio/video/embed', async () => {

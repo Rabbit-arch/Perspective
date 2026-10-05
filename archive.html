@@ -30,8 +30,10 @@ opacity:0;animation:bl 3.5s steps(1) infinite}
 body::after{content:"";position:fixed;inset:-10%;pointer-events:none;z-index:0;opacity:.07;
 background:repeating-conic-gradient(#fff 0 25%,#000 0 50%) 0 0/3px 3px,
 repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 5px);mix-blend-mode:screen}
-h1{font-family:'Liberation Serif',serif;font-size:clamp(18px,5vw,26px);letter-spacing:.45em;margin:10px 0;font-weight:normal;-webkit-font-smoothing:none;font-smooth:never;
+h1,h2,h3,h4,h5,h6,article h2,article h3,.notice-title,.notice-code{font-family:'Liberation Serif',serif;font-weight:normal}
+h1{font-size:clamp(18px,5vw,26px);letter-spacing:.45em;margin:10px 0;-webkit-font-smoothing:none;font-smooth:never;
 animation:gl 3.5s steps(1) infinite}
+#st,.sub,.subt,.notice-tag,[role="status"],.status{font-family:'Liberation Serif',serif}
 @keyframes gl{0%,5%,8%,9%,12%,49%,60%,100%{text-shadow:none}
 6%,10%{text-shadow:0 0 8px #ff2a35,0 0 22px #ff2a35,3px 0 #ff2a35,-3px 0 #5ff;color:#fff}
 50%,56%{text-shadow:0 0 10px #ff2a35,0 0 30px #ff2a35;color:#fff}53%{text-shadow:none}}
@@ -75,7 +77,6 @@ article{margin:44px 0;text-align:center}
 }
 .notice-code{
   font-size:clamp(32px,10vw,52px);
-  font-weight:400;
   color:var(--ac);
   letter-spacing:.08em;
   margin:0 0 8px;

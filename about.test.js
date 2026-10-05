@@ -75,3 +75,10 @@ test('tanpa embed/musik otomatis/gambar remote di halaman about', async () => {
   assert.equal(a.querySelectorAll('iframe,audio,video,embed,object').length, 0);
   a.querySelectorAll('img').forEach((i) => assert.doesNotMatch(i.getAttribute('src') || '', /^(https?:)?\/\//));
 });
+
+test('CSS mendefinisikan Liberation Serif untuk header dan status', async () => {
+  const { d } = await load();
+  const style = d.querySelector('style').textContent;
+  assert.match(style, /Liberation Serif/);
+  assert.match(style, /h1,h2,h3,h4,h5,h6/);
+});

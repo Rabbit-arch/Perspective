@@ -1,5 +1,18 @@
 # Catatan Perubahan & Analisis Proyek P008 (PERSPECTIVE)
 
+## [Header & Status Font Update] - 2026-10-06
+
+### Ringkasan
+- **Font Liberation Serif Global**: Mengubah seluruh elemen header (`h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `article h2`, `article h3`, `.notice-title`, `.notice-code`) dan teks status (`#st`, `.sub`, `.subt`, `.notice-tag`, `[role="status"]`, `.status`) di seluruh halaman (`perspective.html`, `about.html`, `archive.html`) agar secara konsisten menggunakan font **Liberation Serif**.
+- **TDD & Visual Fixes**: Memperbarui dan memulihkan teks header `h1` fullwidth serta stanzas pada `about.html`, memperbarui suite tes `archive.test.js` untuk notice-box 503, dan menambahkan tes CSS font family pada `about.test.js`. Seluruh 20 tes unit pada suite pengujian berhasil lulus 100%.
+
+### File yang Diubah
+- `perspective.html`, `about.html`, `archive.html`: Menambahkan/memperbarui aturan CSS `h1,h2,h3,h4,h5,h6,article h2,article h3` dan `#st,.sub,.subt,.notice-tag,[role="status"],.status` untuk menggunakan `font-family: 'Liberation Serif', serif`.
+- `about.html`: Memulihkan judul fullwidth `⌈ ＡＢＯＵＴ　ＭＥ ⌋` dan stanzas isi pada `<article>`.
+- `about.test.js`, `archive.test.js`: Memperbarui suite tes sesuai TDD Protocol.
+
+---
+
 ## [Security & Animation Update] - 2026-10-06
 
 ### Ringkasan
