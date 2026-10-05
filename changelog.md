@@ -1,6 +1,22 @@
 # Catatan Perubahan & Analisis Proyek P008 (PERSPECTIVE)
 
+## [Web Font] - 2026-10-06
+
+### Ringkasan
+Menambahkan Google Fonts (`Noto Sans Mono`) ke seluruh halaman agar tampilan font konsisten di semua perangkat — menyamakan tampilan lokal (Arch Linux) dengan tampilan published (GitHub Pages/Vercel/Netlify).
+
+### File yang Diubah
+- `perspective.html`: Tambah `<link>` preconnect + Google Fonts, update `font-family` ke `"Noto Sans Mono","Courier New",Courier,monospace`
+- `about.html`: Idem
+- `archive.html`: Idem
+
+### Alasan
+Font lokal menggunakan `Noto Sans Mono` (default monospace Arch Linux), sedangkan perangkat lain (Android, Windows, iOS) jatuh ke font sistem masing-masing karena hanya `"Courier New"` yang digunakan sebelumnya. Dengan Google Fonts, semua perangkat mengunduh font yang sama.
+
+---
+
 ## [Analisis Awal Proyek] - 2026-10-05
+
 
 ### Deskripsi Ringkas
 `P008` adalah aplikasi web SPA (Single Page Application) monolitik berbasis halaman tunggal HTML (`perspective.html`) dengan estetika retro dithering, monokrom, dan aksen warna merah (`#c0262d`). Aplikasi ini mengeksplorasi tema "sudut pandang", jarak, dan persepsi pengamat melalui interaksi visual interaktif dan komponen-komponen eksperimental.
