@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const path = require('path');
 const { JSDOM, VirtualConsole } = require('jsdom');
 
-const FILE = path.resolve(process.env.PAGE || path.join(__dirname, '..', 'perspective.html'));
+const FILE = path.resolve(process.env.PAGE || path.join(__dirname, '..', 'index.html'));
 const MAIL = 'raihanhmubarak@gmail.com';
 const wins = [];
 after(() => wins.forEach((w) => w.close())); // hentikan setInterval/rAF milik halaman

@@ -1,5 +1,21 @@
 # Catatan Perubahan & Analisis Proyek P008 (PERSPECTIVE)
 
+## [Entry Point Rename: perspective.html -> index.html] - 2026-10-12
+
+### Ringkasan
+- **Standarisasi File Entry Point (`index.html`)**: Mengubah nama berkas halaman utama dari `perspective.html` menjadi `index.html`. Hal ini memastikan situs dapat dimuat secara langsung sebagai halaman beranda standar oleh web server lokal maupun saat di-deploy (misalnya di GitHub Pages) tanpa perlu menyebutkan nama file secara eksplisit di URL.
+- **Pembaruan Konfigurasi & Tes**:
+  - `package.json`: Mengubah properti `"main"` dari `perspective.html` menjadi `index.html`.
+  - `tests/contact.test.js`: Menyesuaikan resolusi jalur berkas target pengujian dari `perspective.html` ke `index.html`.
+- **Status Pengujian (TDD Protocol)**: Seluruh 20 pengujian unit pada suite pengujian berhasil lulus 100%.
+
+### File yang Diubah
+- `index.html`: [RENAME] Menggantikan `perspective.html` sebagai file halaman utama situs.
+- `package.json`: Memperbarui atribut `"main"`.
+- `tests/contact.test.js`: Memperbarui resolusi path target HTML pengujian.
+
+---
+
 ## [Folder & Asset Structure Reorganization] - 2026-10-12
 
 ### Ringkasan
