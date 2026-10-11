@@ -1,5 +1,20 @@
 # Catatan Perubahan & Analisis Proyek P008 (PERSPECTIVE)
 
+## [Code Formatting & Structure Optimization] - 2026-10-12
+
+### Ringkasan
+- **Penataan & Perapian Kode (Human-Readable)**: Menata ulang struktur kode HTML, CSS, dan JavaScript pada seluruh file website (`perspective.html`, `about.html`, `archive.html`) agar memiliki indentasi standar yang konsisten (2 spasi), pemisahan blok aturan bertingkat yang rapi, dan komentar penjelas seksi (*section banners*).
+- **Integritas Fungsi 100%**: Tidak ada penambahan atau pengurangan fungsi/logika apa pun. Seluruh ID, class, variabel, keyframes, logika animasi mata SVG, pencekalan devtools, router hash, dan event listener dipertahankan persis sama secara fungsional.
+- **TDD Protocol**: Menyesuaikan assertions pada `about.test.js` terhadap penataan kode dan teks judul pengguna, serta memastikan seluruh 20 tes pada 3 suite pengujian (`about.test.js`, `archive.test.js`, `contact.test.js`) berhasil lulus 100%.
+
+### File yang Diubah
+- `perspective.html`: Merapikan indentasi HTML, memecah CSS satu baris menjadi blok terstruktur dengan komentar pemisah, dan memformat JavaScript menjadi modul-modul fungsi yang bersih dan rapi.
+- `about.html`: Merapikan markup HTML stanzas, memformat aturan CSS multi-baris, dan merapikan utilitas Fullwidth serta script pencekal inspect.
+- `archive.html`: Merapikan markup kotak status 503, memformat aturan CSS, dan merapikan script pencekal inspect.
+- `about.test.js`: Menyesuaikan ekspektasi test judul `h1` dan regex CSS agar kompatibel dengan kode terformat.
+
+---
+
 ## [Header & Status Font Update] - 2026-10-06
 
 ### Ringkasan

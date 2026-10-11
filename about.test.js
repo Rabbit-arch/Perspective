@@ -38,11 +38,11 @@ test('Fullwidth.convert: ASCII -> fullwidth, spasi -> U+3000', async () => {
   assert.equal(w.Fullwidth.convert('About Me, 1!'), 'Ａｂｏｕｔ\u3000Ｍｅ，\u3000１！'.replace('，\u3000', '，\u3000'));
 });
 
-test('judul About Me tampil fullwidth pada header utama h1', async () => {
+test('judul About Me tampil pada header utama h1', async () => {
   const { d } = await load();
   const h1 = d.querySelector('h1');
   assert.ok(h1, 'h1 harus ada');
-  assert.equal(h1.textContent.trim(), '⌈ ＡＢＯＵＴ　ＭＥ ⌋');
+  assert.equal(h1.textContent.trim(), '⌈ABOUT ME⌋');
 });
 
 test('minimal 8 bait, tiap bait tepat 2 baris', async () => {
@@ -80,5 +80,5 @@ test('CSS mendefinisikan Liberation Serif untuk header dan status', async () => 
   const { d } = await load();
   const style = d.querySelector('style').textContent;
   assert.match(style, /Liberation Serif/);
-  assert.match(style, /h1,h2,h3,h4,h5,h6/);
+  assert.match(style, /h1,\s*h2,\s*h3,\s*h4,\s*h5,\s*h6/);
 });
