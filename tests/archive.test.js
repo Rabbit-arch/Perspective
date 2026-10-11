@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const path = require('path');
 const { JSDOM, VirtualConsole } = require('jsdom');
 
-const FILE = path.resolve(process.env.PAGE || path.join(__dirname, 'archive.html'));
+const FILE = path.resolve(process.env.PAGE || path.join(__dirname, '..', 'archive.html'));
 const wins = [];
 after(() => wins.forEach((w) => w.close()));
 

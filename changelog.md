@@ -1,5 +1,29 @@
 # Catatan Perubahan & Analisis Proyek P008 (PERSPECTIVE)
 
+## [Folder & Asset Structure Reorganization] - 2026-10-12
+
+### Ringkasan
+- **Reorganisasi Struktur Direktori & Aset**: Menata ulang tata letak folder dan file proyek agar bersih dan terorganisir secara modular.
+  - Membuat folder `assets/fonts/` dan memindahkan seluruh file font (`LiberationMono-Regular.ttf`, `LiberationSerif-Regular.ttf`, `LiterationMonoNerdFont-Regular.ttf`) ke dalamnya.
+  - Membuat folder `assets/images/` dan memindahkan file gambar (`statue4.png`, `statue7o1.png`, `statue9.gif`) ke dalamnya.
+  - Membuat folder `tests/` dan mengelompokkan seluruh berkas pengujian (`about.test.js`, `archive.test.js`, `contact.test.js`) ke dalamnya.
+- **Pembaruan Referensi Jalur (Path Resolution)**:
+  - Memperbarui referensi `@font-face` di `perspective.html`, `about.html`, dan `archive.html` ke `assets/fonts/`.
+  - Memperbarui atribut `src` gambar potret di `perspective.html` ke `assets/images/statue4.png`.
+  - Menyesuaikan pembacaan target berkas HTML pada suite pengujian (`tests/*.test.js`) agar merujuk ke direktori induk (`..`).
+  - Memperbarui skrip `test` pada `package.json` menjadi `node --test tests/*.test.js`.
+- **Status Pengujian (TDD Protocol)**: Seluruh 20 tes unit pada suite pengujian lulus 100% tanpa kesalahan.
+
+### File yang Diubah
+- `assets/fonts/`: [NEW DIRECTORY] Menampung file-file font.
+- `assets/images/`: [NEW DIRECTORY] Menampung file-file gambar.
+- `tests/`: [NEW DIRECTORY] Menampung seluruh suite tes pengujian.
+- `perspective.html`, `about.html`, `archive.html`: Memperbarui path aset font dan gambar.
+- `package.json`: Memperbarui skrip tes npm.
+- `tests/about.test.js`, `tests/archive.test.js`, `tests/contact.test.js`: Memperbarui resolusi path target HTML.
+
+---
+
 ## [Code Formatting & Structure Optimization] - 2026-10-12
 
 ### Ringkasan

@@ -4,7 +4,7 @@
   "description": "PERSPECTIVE - Catatan pelan tentang jarak, sudut, dan siapa yang sedang memandang siapa",
   "main": "perspective.html",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test tests/*.test.js"
   },
   "devDependencies": {
     "jsdom": "^26.0.0"
