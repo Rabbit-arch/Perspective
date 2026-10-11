@@ -618,28 +618,11 @@
       display: block;
     }
 
+    /* Judul Terlihat: rata tengah & simetris. padding-left = letter-spacing
+       mengimbangi spasi huruf yang menempel setelah karakter terakhir tiap baris. */
     body.on #ttl {
-      position: relative;
-      padding: 0 1.4em;
-    }
-
-    body.on #ttl::before,
-    body.on #ttl::after {
-      position: absolute;
-      color: var(--fg);
-      font-weight: 400;
-    }
-
-    body.on #ttl::before {
-      content: "⌈";
-      left: 0;
-      top: 0;
-    }
-
-    body.on #ttl::after {
-      content: "⌋";
-      right: 0;
-      bottom: 0;
+      text-align: center;
+      padding-left: .45em;
     }
 
     /* ==========================================================================
@@ -1366,7 +1349,7 @@
        ========================================================================== */
     function setV(x) {
       v = x;
-      ttl.innerHTML = v ? 'YOU　ARE　BEING<br>WATCHED' : TT0;
+      ttl.innerHTML = v ? 'YOU ARE BEING<br>⌈ WATCHED ⌋' : TT0;
       st.textContent = '';
       tg.textContent = v ? '[I See You]' : '[I Want To See]';
       ps.classList.toggle('hid', !v);
